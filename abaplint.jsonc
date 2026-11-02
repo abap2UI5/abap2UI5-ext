@@ -1,0 +1,48 @@
+{
+  "global": {
+    "files": "/src/**/*.*"
+  },
+  "dependencies": [
+    {
+      "url": "https://github.com/abapedia/steampunk-2305-api-intersect-702",
+      "folder": "/deps",
+      "files": "/src/**/*.*"
+    },
+    {
+      // A release tag, not main: users install a release next to this
+      // repository. Only src/00 - what these classes call (ajson, S-RTTI and
+      // the public types and constants of z2ui5_cl_ui5_util_context). A release
+      // up to 1.148.0 still ships the same classes in src/99/01; loading all
+      // of src/ would define every object twice.
+      "url": "https://github.com/abap2UI5/abap2UI5",
+      "branch": "1.148.0",
+      "folder": "/abap2UI5",
+      "files": "/src/00/**/*.*"
+    }
+  ],
+  "syntax": {
+    "version": "v750",
+    "errorNamespace": "."
+  },
+  // the rules abap2UI5 ran on these classes while they were its src/99/01
+  // (.github/abaplint/abap_standard.jsonc there): frozen legacy code, checked
+  // for activation, not for style
+  "rules": {
+    "begin_end_names": true,
+    "cds_parser_error": true,
+    "check_ddic": true,
+    "strict_sql": true,
+    "sql_escape_host_variables": true,
+    "check_include": true,
+    "check_syntax": true,
+    "cloud_types": true,
+    "global_class": true,
+    "implement_methods": true,
+    "method_implemented_twice": true,
+    "parser_error": true,
+    "superclass_final": true,
+    "unknown_types": true,
+    "xml_bom": true,
+    "xml_consistency": true
+  }
+}
