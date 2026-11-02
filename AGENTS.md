@@ -12,13 +12,17 @@ working unchanged.
 
 ## Rules
 
-- **The code is frozen.** It is the exact `src/99/01` of abap2UI5 at the time
-  of the move. Do not refactor, extend or restyle it; fix only what stops it
+- **The code is frozen.** It is the `src/99/01` of abap2UI5 at the time of
+  the move (one line differs, see below). Do not refactor, extend or restyle it; fix only what stops it
   from activating against a current abap2UI5 release. New utilities belong in
   [abap-util](https://github.com/abap-util/abap-util), never here.
 - **Dependency on the core:** these classes call `z2ui5_cl_ajson`,
-  `z2ui5_cl_srt_*` and public types/constants of `z2ui5_cl_ui5_util_context`
-  (all in the core's `src/00`). The abaplint configs load only `src/00` of a
+  `z2ui5_cl_srt_*` and the public types `ty_s_name_value` / `ty_t_name_value` of
+  `z2ui5_cl_ui5_util_context` (all in the core's `src/00`). Nothing marked
+  `FROZEN-ONLY` there: those symbols leave the core together with its
+  `src/99`. `z2ui5_cl_util_xml` reads its XML-attribute escape format from
+  `z2ui5_cl_util` for that reason - the only line that differs from the
+  core's former `src/99/01`. The abaplint configs load only `src/00` of a
   pinned release, because releases up to 1.148.0 still contain `src/99/01`
   themselves and would define every object twice.
 
