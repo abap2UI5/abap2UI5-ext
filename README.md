@@ -1,10 +1,10 @@
-# abap2UI5-obsolet
+# abap2UI5-ext
 
 The legacy objects of abap2UI5 that its core no longer ships.
 
-[![abap-standard](https://github.com/abap2UI5/abap2UI5-obsolet/actions/workflows/abap-standard.yaml/badge.svg)](https://github.com/abap2UI5/abap2UI5-obsolet/actions/workflows/abap-standard.yaml)
-[![abap-cloud](https://github.com/abap2UI5/abap2UI5-obsolet/actions/workflows/abap-cloud.yaml/badge.svg)](https://github.com/abap2UI5/abap2UI5-obsolet/actions/workflows/abap-cloud.yaml)
-[![abap-702](https://github.com/abap2UI5/abap2UI5-obsolet/actions/workflows/abap-702.yaml/badge.svg)](https://github.com/abap2UI5/abap2UI5-obsolet/actions/workflows/abap-702.yaml)
+[![abap-standard](https://github.com/abap2UI5/abap2UI5-ext/actions/workflows/abap-standard.yaml/badge.svg)](https://github.com/abap2UI5/abap2UI5-ext/actions/workflows/abap-standard.yaml)
+[![abap-cloud](https://github.com/abap2UI5/abap2UI5-ext/actions/workflows/abap-cloud.yaml/badge.svg)](https://github.com/abap2UI5/abap2UI5-ext/actions/workflows/abap-cloud.yaml)
+[![abap-702](https://github.com/abap2UI5/abap2UI5-ext/actions/workflows/abap-702.yaml/badge.svg)](https://github.com/abap2UI5/abap2UI5-ext/actions/workflows/abap-702.yaml)
 
 **Install this repository with abapGit next to
 [abap2UI5](https://github.com/abap2UI5/abap2UI5) if your code - or an addon
@@ -78,8 +78,8 @@ repository is the one place for them now. A system that installed one of
 the two switches without deleting anything:
 
 1. In abapGit, open the repository that points at `abap2UI5/frontend` (or
-   `abap2UI5-ext`) and change its URL to
-   `https://github.com/abap2UI5/abap2UI5-obsolet` (branch `main`, `702` on
+   `abap2UI5-obsolet`, its name until 2026-11-25) and change its URL to
+   `https://github.com/abap2UI5/abap2UI5-ext` (branch `main`, `702` on
    NetWeaver 7.02 - 7.4x). Alternatively remove it from abapGit **without
    deleting its objects** and add this repository on the same package.
 2. Pull. The objects are the same; the pull only adds what the old

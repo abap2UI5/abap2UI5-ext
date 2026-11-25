@@ -1,4 +1,4 @@
-# AGENTS.md — AI Assistant Guide for abap2UI5-obsolet
+# AGENTS.md — AI Assistant Guide for abap2UI5-ext
 
 ## What this repository is
 
