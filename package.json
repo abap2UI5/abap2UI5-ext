@@ -1,8 +1,8 @@
 {
-  "name": "abap2ui5-ext",
+  "name": "abap2ui5-obsolet",
   "private": true,
   "version": "1.0.0",
-  "description": "Legacy utilities of abap2UI5 (z2ui5_cl_util*, z2ui5_cx_util_error, z2ui5_t_91), moved out of the core's src/99/01 - install next to abap2UI5 if your code still uses them.",
+  "description": "The legacy objects of abap2UI5 its core no longer ships (the XML view builder, the popups, z2ui5_cl_util*, z2ui5_cx_util_error, z2ui5_t_91) - install next to abap2UI5 if your code still uses them.",
   "scripts": {
     "syfixes": "find . -type f -name '*.abap' -exec sed -i -e 's/ RAISE EXCEPTION TYPE cx_sy_itab_line_not_found/ ASSERT 1 = 0/g' {} + ",
     "strip_trailing_ws": "find src -type f -name '*.abap' -exec sed -i 's/[[:space:]]\\+$//' {} +",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abap2UI5/abap2UI5-ext.git"
+    "url": "git+https://github.com/abap2UI5/abap2UI5-obsolet.git"
   },
   "license": "MIT",
   "devDependencies": {
