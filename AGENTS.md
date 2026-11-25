@@ -78,7 +78,11 @@ its generated branch `cloud`), nothing of them belongs here.
 
 ## Validation
 
-`npm run check` runs what CI runs: abaplint Standard (`abaplint.jsonc`) and
-ABAP Cloud (`.github/abaplint/abap_cloud.jsonc`). `publish-702` writes the
+`npm run check` runs what CI runs: abaplint Standard (`abaplint.jsonc`),
+ABAP Cloud (`.github/abaplint/abap_cloud.jsonc`) and the abap2UI5-linter
+(`abap2ui5lint.jsonc`, workflow `abap2ui5-lint`). The linter's findings at
+adoption are in `abap2ui5lint-baseline.json` - frozen code is checked, not
+restyled; a new finding fails, a fixed one makes its entry stale (run
+`npx abap2ui5lint --update-baseline`). `publish-702` writes the
 downported branch `702` on every push to `main`, `abap-702` lints it.
 All `.abap`/`.xml`/config files are LF-only (`.gitattributes`).
