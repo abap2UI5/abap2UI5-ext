@@ -13,7 +13,9 @@ concurrency:
 
 jobs:
   publish-702:
-    if: github.repository == 'abap2UI5/abap2UI5-ext'
+    # the legacy objects live in abap2UI5/abap2UI5-obsolet (before: abap2UI5-ext,
+    # then abap2UI5/frontend) - never in a fork
+    if: github.repository == 'abap2UI5/abap2UI5-obsolet'
     permissions:
       contents: write
     runs-on: ubuntu-latest

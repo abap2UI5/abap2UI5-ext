@@ -9,11 +9,11 @@
       "files": "/src/**/*.*"
     },
     {
-      // the downported form of the release abaplint.jsonc pins, only its src/00
+      // the downported form of the release abaplint.jsonc pins, its src/00 to src/02
       "url": "https://github.com/abap2UI5/abap2UI5",
-      "branch": "1.148.0-702",
+      "branch": "1.149.0-702",
       "folder": "/abap2UI5",
-      "files": "/src/00/**/*.*"
+      "files": "/src/0[0-2]/**/*.*"
     }
   ],
   "syntax": {

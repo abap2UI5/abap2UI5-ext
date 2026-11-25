@@ -1,7 +1,7 @@
 name: abap-cloud
 
 on:
-  # The core is pinned to a release tag (abaplint.jsonc), only its src/00.
+  # The core is pinned to a release tag (abaplint.jsonc), its src/00 to src/02.
   # The weekly run notices a dependency that moved while no pull request is
   # open.
   schedule:
