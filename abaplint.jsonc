@@ -9,8 +9,8 @@
       "files": "/src/**/*.*"
     },
     {
-      // main, not 1.149.0: the namespace rename (npm run rename) renames
-      // this repository together with the core's main, the state abap2UI5's
+      // 1.151.0, not 1.149.0: the namespace rename (npm run rename) renames
+      // this repository together with the core at that tag, the state abap2UI5's
       // build-rename renames - against 1.149.0 and 1.150.0 the cloned core
       // does not lint (Z2UI5_IF_EXIT is in their src/99). src/00 to src/02 -
       // what these classes call: ajson, S-RTTI and z2ui5_cl_ui5_util_context
@@ -19,8 +19,7 @@
       // release up to 1.149.0 still ships the classes of src/01 and src/02
       // there, and loading it would define every object twice.
       "url": "https://github.com/abap2UI5/abap2UI5",
-      // 1.151.0 - move to the tag once it is cut
-      "branch": "main",
+      "branch": "1.151.0",
       "folder": "/abap2UI5",
       "files": "/src/0[0-2]/**/*.*"
     }
