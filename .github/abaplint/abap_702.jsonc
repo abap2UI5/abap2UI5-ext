@@ -9,9 +9,11 @@
       "files": "/src/**/*.*"
     },
     {
-      // the downported form of the release abaplint.jsonc pins, its src/00 to src/02
+      // the downported form of what abaplint.jsonc pins (the core's main:
+      // its branch 702), its src/00 to src/02
       "url": "https://github.com/abap2UI5/abap2UI5",
-      "branch": "1.149.0-702",
+      // 1.151.0-702 - move to the tag once it is cut
+      "branch": "702",
       "folder": "/abap2UI5",
       "files": "/src/0[0-2]/**/*.*"
     }

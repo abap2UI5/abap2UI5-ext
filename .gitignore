@@ -1,3 +1,8 @@
 node_modules
 output
 .github/abaplint/output/
+
+# npm run rename (.github/scripts/rename.mjs)
+.github/abaplint/rename_run.json
+.github/abaplint/rename-deps/
+.github/out/

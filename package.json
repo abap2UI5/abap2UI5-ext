@@ -12,7 +12,8 @@
     "lint": "abaplint ./abaplint.jsonc",
     "check:cloud": "abaplint .github/abaplint/abap_cloud.jsonc",
     "check:abap2ui5": "abap2ui5lint",
-    "check": "npm run lint && npm run check:cloud && npm run check:abap2ui5",
+    "rename": "node .github/scripts/rename.mjs",
+    "check": "npm run lint && npm run check:cloud && npm run check:abap2ui5 && npm run rename",
     "test": "npm run check"
   },
   "repository": {

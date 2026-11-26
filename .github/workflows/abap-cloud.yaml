@@ -1,9 +1,9 @@
 name: abap-cloud
 
 on:
-  # The core is pinned to a release tag (abaplint.jsonc), its src/00 to src/02.
-  # The weekly run notices a dependency that moved while no pull request is
-  # open.
+  # The core is its main (abaplint.jsonc, until the 1.151.0 tag), its src/00
+  # to src/02. The weekly run notices a dependency that moved while no pull
+  # request is open.
   schedule:
     - cron: '0 5 * * 1'
   workflow_dispatch:
@@ -29,6 +29,4 @@ jobs:
         node-version: '22'
         cache: 'npm'
     - run: npm ci
-    # the scheduled run lints against the core's main tip instead of the
-    # pinned tag - in this checkout only, it is never committed
     - run: npx abaplint .github/abaplint/abap_cloud.jsonc
