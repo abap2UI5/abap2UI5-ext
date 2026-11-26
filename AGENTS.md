@@ -67,10 +67,11 @@ its generated branch `cloud`), nothing of them belongs here.
     the core keeps for exactly these classes. The core cannot drop one of
     them before the call here is gone - redirecting such a call to
     `z2ui5_cl_util`, which holds the original, is the change that frees it.
-- **The abaplint configs load `src/00` to `src/02` of a pinned core
-  release**, not all of `src/`: a release up to 1.149.0 still ships these
-  classes itself in `src/99`, and loading that would define every object
-  twice. For the same reason the classes of `src/01` and `src/02` can only be
+- **The abaplint configs load `src/00` to `src/02` of the core's `main`**
+  (`702` for the 7.02 config; the 1.151.0 tag once it is cut), not all of
+  `src/`: a release up to 1.149.0 still ships these classes itself in
+  `src/99`, and loading that would define every object twice. Not an older
+  tag: the namespace rename (below) pairs with the core's `main`. For the same reason the classes of `src/01` and `src/02` can only be
   installed next to a core release **after 1.149.0**.
 - **The test classes moved with their objects and run on a system only.**
   In the core they ran in the transpiled unit suite; this repository lints,
@@ -79,10 +80,27 @@ its generated branch `cloud`), nothing of them belongs here.
 ## Validation
 
 `npm run check` runs what CI runs: abaplint Standard (`abaplint.jsonc`),
-ABAP Cloud (`.github/abaplint/abap_cloud.jsonc`) and the abap2UI5-linter
-(`abap2ui5lint.jsonc`, workflow `abap2ui5-lint`). The linter's findings at
+ABAP Cloud (`.github/abaplint/abap_cloud.jsonc`), the abap2UI5-linter
+(`abap2ui5lint.jsonc`, workflow `abap2ui5-lint`) and the namespace rename
+(`npm run rename`, workflow `check-rename`). The linter's findings at
 adoption are in `abap2ui5lint-baseline.json` - frozen code is checked, not
 restyled; a new finding fails, a fixed one makes its entry stale (run
 `npx abap2ui5lint --update-baseline`). `publish-702` writes the
 downported branch `702` on every push to `main`, `abap-702` lints it.
 All `.abap`/`.xml`/config files are LF-only (`.gitattributes`).
+
+## Namespace rename
+
+`npm run rename` (CI: `check-rename`) and the manual `build-rename` workflow
+are abap2UI5's namespace rename for this repository -
+`.github/scripts/rename.mjs`, the same file in every addon that has one (change
+it everywhere; never here alone). Every `z2ui5_` object becomes `<name>_...`,
+for a customer name such as `ZMYUI5` or a registered namespace such as
+`/CA2UI5/` (at most 10 characters), and so does every reference to abap2UI5:
+the branch `rename_<name>` runs on an abap2UI5 renamed with the same name by
+its own `build-rename`, which renames the core's `main` - hence the `main`
+pin. An app on the legacy API that moves to a renamed abap2UI5 needs these
+objects renamed with the same name. The rename touches no source here: it
+writes the renamed copy to the branch. What follows from it for the frozen
+code: every object name keeps at most 25 characters (a transparent table 11),
+and no literal names a `z2ui5_` object.
