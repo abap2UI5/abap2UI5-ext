@@ -4,52 +4,36 @@
   },
   "dependencies": [
     {
-      "url": "https://github.com/abapedia/steampunk-2305-api-intersect-702",
+      "url": "https://github.com/open-abap/open-abap-core",
       "folder": "/deps",
       "files": "/src/**/*.*"
     },
     {
-      // main, not a release: z2ui5_cl_util calls the core's ajson and S-RTTI
-      // by the names they have since abap2UI5/abap2UI5#3093
-      // (z2ui5_cl_ui5_ajs, z2ui5_cl_ui5_srt_type), which no release up to
-      // 1.151.0 has - move to the first release that has them. Not 1.149.0 or
-      // 1.150.0 either: the namespace rename (npm run rename) renames this
-      // repository together with the core at this pin, and against those the
-      // cloned core does not lint (Z2UI5_IF_EXIT is in their src/99). src/00 to src/02 -
-      // what these classes call: ajson, S-RTTI and z2ui5_cl_ui5_util_context
-      // (the utilities its public types, the view builder and the popups a
-      // few members the core uses itself), and the public API. Not src/99: a
-      // release up to 1.149.0 still ships the classes of src/01 and src/02
-      // there, and loading it would define every object twice.
+      // the downported form of what abaplint.jsonc pins (the core's main:
+      // its branch 702), its src/00 to src/02
       "url": "https://github.com/abap2UI5/abap2UI5",
-      "branch": "main",
+      "branch": "702",
       "folder": "/abap2UI5",
       "files": "/src/0[0-2]/**/*.*"
     }
   ],
   "syntax": {
-    "version": "v750",
+    "version": "v702",
     "errorNamespace": "."
   },
-  // the rules abap2UI5 ran on these classes while they were its src/99/01
-  // (.github/abaplint/abap_standard.jsonc there): frozen legacy code, checked
-  // for activation, not for style
   "rules": {
+    "downport": true,
     "begin_end_names": true,
-    "cds_parser_error": true,
     "check_ddic": true,
-    "strict_sql": true,
-    "sql_escape_host_variables": true,
     "check_include": true,
     "check_syntax": true,
-    "cloud_types": true,
     "global_class": true,
+    "definitions_top": true,
     "implement_methods": true,
     "method_implemented_twice": true,
     "parser_error": true,
     "superclass_final": true,
     "unknown_types": true,
-    "xml_bom": true,
     "xml_consistency": true
   }
 }
