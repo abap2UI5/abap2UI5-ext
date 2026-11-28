@@ -1,7 +1,8 @@
 name: abap-standard
 
 on:
-  # The core is its main (abaplint.jsonc, until the 1.151.0 tag), its src/00
+  # The core is its main (abaplint.jsonc, until a release has the renamed
+  # ajson and S-RTTI - none up to 1.151.0), its src/00
   # to src/02. The weekly run notices a dependency that moved while no pull
   # request is open.
   schedule:
