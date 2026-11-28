@@ -30,7 +30,7 @@ its generated branch `cloud`), nothing of them belongs here.
 ## Rules
 
 - **The code is frozen.** It is the core's `src/99` at the time of each move
-  (it differs in four places, listed below). Do not refactor,
+  (it differs in five places, listed below). Do not refactor,
   extend or restyle it; fix only what stops it from activating against a
   current abap2UI5 release. New utilities belong in
   [abap-util](https://github.com/abap-util/abap-util), a new popup in
@@ -50,6 +50,9 @@ its generated branch `cloud`), nothing of them belongs here.
     `z2ui5_cl_ajson`, `z2ui5_if_ajson` and `z2ui5_cl_srt_typedescr`. The
     core renamed its vendored copies; this repository may not add objects,
     so it does not vendor one of its own.
+  - The view builder and the popups call `z2ui5_cl_util` where they
+    called a `FROZEN-ONLY` symbol of `z2ui5_cl_ui5_util_context`
+    (2026-11-28, the dependency rule below) - same method, same code.
   - `z2ui5_cl_util_ext=>lock_set_wait` pauses between two tries with the
     function module `ENQUE_SLEEP`, called by name, where it had
     `WAIT UP TO` (2026-11-22): `WAIT` is no statement of ABAP Cloud, and a
@@ -68,11 +71,13 @@ its generated branch `cloud`), nothing of them belongs here.
     `z2ui5_cl_util` for that reason - a line that differs from the core's
     former `src/99/01`.
   - `src/01` and `src/02` call the public API (`z2ui5_if_client`,
-    `z2ui5_if_app`, `z2ui5_cl_ui5_view_builder`)
-    **and the `FROZEN-ONLY` symbols of `z2ui5_cl_ui5_util_context`**, which
-    the core keeps for exactly these classes. The core cannot drop one of
-    them before the call here is gone - redirecting such a call to
-    `z2ui5_cl_util`, which holds the original, is the change that frees it.
+    `z2ui5_if_app`, `z2ui5_cl_ui5_view_builder`) and members of
+    `z2ui5_cl_ui5_util_context` the core uses itself. What the core had
+    marked `FROZEN-ONLY` - kept for exactly these classes - they call on
+    `z2ui5_cl_util`, which holds the original (2026-11-28), so the core
+    can drop those symbols. **Never call a member of
+    `z2ui5_cl_ui5_util_context` from here that `z2ui5_cl_util` has as
+    well** - the core trims that class to its own callers.
 - **The abaplint configs load `src/00` to `src/02` of the core's `main`**
   (`702` for the 7.02 config), not all of `src/`: a release up to 1.149.0
   still ships these classes itself in `src/99`, and loading that would define

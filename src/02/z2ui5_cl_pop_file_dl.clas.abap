@@ -84,7 +84,7 @@ CLASS z2ui5_cl_pop_file_dl IMPLEMENTATION.
 
     IF mv_check_download = abap_true.
       DATA(lv_csv_x) = z2ui5_cl_ui5_util_context=>conv_get_xstring_by_string( mv_value ).
-      DATA(lv_base64) = z2ui5_cl_ui5_util_context=>conv_encode_x_base64( lv_csv_x ).
+      DATA(lv_base64) = z2ui5_cl_util=>conv_encode_x_base64( lv_csv_x ).
 
       " the hidden iframe IS the download: the browser fetches the data URI
       " and the Timer below reports back once it has

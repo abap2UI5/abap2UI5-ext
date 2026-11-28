@@ -1,7 +1,6 @@
 {
   "note": "abap2ui5-linter baseline: findings that existed when the linter was adopted. Suppressed on every run; NEW findings still fail, a STALE entry fails too. Regenerate with --update-baseline.",
   "findings": {
-    "src/02/z2ui5_cl_pop_data.clas.abap|non-released-api||src/00/03|z2ui5_cl_ui5_util_context": 1,
     "src/02/z2ui5_cl_pop_demo_output.clas.abap|missing-on-navigated-branch|||": 1,
     "src/02/z2ui5_cl_pop_demo_output.clas.abap|unescaped-text-in-attribute||text|button_text_confirm": 1,
     "src/02/z2ui5_cl_pop_demo_output.clas.abap|unescaped-text-in-attribute||title|title": 1,
@@ -58,6 +57,7 @@
     "src/02/z2ui5_cl_pop_input_val.clas.abap|unescaped-text-in-attribute||text|button_text_confirm": 1,
     "src/02/z2ui5_cl_pop_input_val.clas.abap|unescaped-text-in-attribute||text|question_text": 1,
     "src/02/z2ui5_cl_pop_input_val.clas.abap|unescaped-text-in-attribute||title|title": 1,
+    "src/02/z2ui5_cl_pop_messages.clas.abap|enum-binding-no-fallback|sap.m.MessageItem|type|TYPE": 1,
     "src/02/z2ui5_cl_pop_messages.clas.abap|missing-on-navigated-branch|||": 1,
     "src/02/z2ui5_cl_pop_messages.clas.abap|non-released-api||src/00/03|z2ui5_cl_ui5_util_context": 1,
     "src/02/z2ui5_cl_pop_messages.clas.abap|unescaped-text-in-attribute||title|title": 1,
@@ -68,6 +68,7 @@
     "src/02/z2ui5_cl_pop_pdf.clas.abap|unescaped-text-in-attribute||text|button_text_confirm": 1,
     "src/02/z2ui5_cl_pop_pdf.clas.abap|unescaped-text-in-attribute||text|question_text": 1,
     "src/02/z2ui5_cl_pop_pdf.clas.abap|unescaped-text-in-attribute||title|title": 1,
+    "src/02/z2ui5_cl_pop_table.clas.abap|namespaced-row-binding|sap.m.Text|text|ls_comp-name": 1,
     "src/02/z2ui5_cl_pop_table.clas.abap|non-released-api||src/00/03|z2ui5_cl_ui5_util_context": 1,
     "src/02/z2ui5_cl_pop_table.clas.abap|unbound-public-attribute||ms_result|": 1,
     "src/02/z2ui5_cl_pop_table.clas.abap|unescaped-text-in-attribute||text|lv_label": 1,
@@ -86,6 +87,7 @@
     "src/02/z2ui5_cl_pop_to_select.clas.abap|bind-path-flag||<tab_out>|": 1,
     "src/02/z2ui5_cl_pop_to_select.clas.abap|event-arg-default-index|||": 1,
     "src/02/z2ui5_cl_pop_to_select.clas.abap|event-arg-single-row-table|||`${$parameters>/selectedContexts[0]/sPath}`": 1,
+    "src/02/z2ui5_cl_pop_to_select.clas.abap|namespaced-row-binding|sap.m.Text|text|ls_comp-name": 1,
     "src/02/z2ui5_cl_pop_to_select.clas.abap|non-released-api||src/00/03|z2ui5_cl_ui5_util_context": 1,
     "src/02/z2ui5_cl_pop_to_select.clas.abap|unbound-public-attribute||ms_result|": 1,
     "src/02/z2ui5_cl_pop_to_select.clas.abap|unescaped-text-in-attribute||text|text": 1,

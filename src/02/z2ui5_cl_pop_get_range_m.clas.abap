@@ -139,7 +139,7 @@ CLASS z2ui5_cl_pop_get_range_m IMPLEMENTATION.
       IF ls_popup_result-check_confirmed = abap_true.
         ASSIGN ms_result-t_filter[ name = mv_popup_name ] TO FIELD-SYMBOL(<tab>).
         <tab>-t_range = ls_popup_result-t_range.
-        <tab>-t_token = z2ui5_cl_ui5_util_context=>filter_get_token_t_by_range_t( <tab>-t_range ).
+        <tab>-t_token = z2ui5_cl_util=>filter_get_token_t_by_range_t( <tab>-t_range ).
       ENDIF.
       popup_display( ).
 

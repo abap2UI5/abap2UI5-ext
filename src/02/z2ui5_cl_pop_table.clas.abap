@@ -84,8 +84,8 @@ CLASS z2ui5_cl_pop_table IMPLEMENTATION.
       IF ls_comp-type IS BOUND AND
           ls_comp-type->is_ddic_type( ) = abap_true.
 
-        DATA(lv_name) = z2ui5_cl_ui5_util_context=>rtti_get_ddic_type_name( ls_comp-type ).
-        DATA(lv_ddic_field_label) = z2ui5_cl_ui5_util_context=>rtti_get_data_element_text_l( lv_name ).
+        DATA(lv_name) = z2ui5_cl_util=>rtti_get_ddic_type_name( ls_comp-type ).
+        DATA(lv_ddic_field_label) = z2ui5_cl_util=>rtti_get_data_element_text_l( lv_name ).
 
         IF lv_ddic_field_label IS NOT INITIAL.
           lv_label = lv_ddic_field_label.

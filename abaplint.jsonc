@@ -17,8 +17,8 @@
       // repository together with the core at this pin, and against those the
       // cloned core does not lint (Z2UI5_IF_EXIT is in their src/99). src/00 to src/02 -
       // what these classes call: ajson, S-RTTI and z2ui5_cl_ui5_util_context
-      // (the utilities its public types, the view builder and the popups its
-      // FROZEN-ONLY symbols as well), and the public API. Not src/99: a
+      // (the utilities its public types, the view builder and the popups a
+      // few members the core uses itself), and the public API. Not src/99: a
       // release up to 1.149.0 still ships the classes of src/01 and src/02
       // there, and loading it would define every object twice.
       "url": "https://github.com/abap2UI5/abap2UI5",
