@@ -1867,7 +1867,7 @@ CLASS z2ui5_cl_util IMPLEMENTATION.
   METHOD json_parse.
     TRY.
 
-        DATA(li_json) = z2ui5_cl_ajson=>parse( val ).
+        DATA(li_json) = z2ui5_cl_ui5_ajs=>parse( val ).
         li_json->to_abap( EXPORTING iv_corresponding = abap_true
                           IMPORTING ev_container     = data ).
 
@@ -1881,7 +1881,7 @@ CLASS z2ui5_cl_util IMPLEMENTATION.
   METHOD json_stringify.
     TRY.
 
-        DATA(li_ajson) = CAST z2ui5_if_ajson( z2ui5_cl_ajson=>create_empty( ) ).
+        DATA(li_ajson) = CAST z2ui5_if_ui5_ajs( z2ui5_cl_ui5_ajs=>create_empty( ) ).
         result = li_ajson->set( iv_path = `/`
                                 iv_val  = any )->stringify( ).
 
@@ -2331,7 +2331,7 @@ CLASS z2ui5_cl_util IMPLEMENTATION.
     ELSE.
 
       TRY.
-          CALL METHOD z2ui5_cl_srt_typedescr=>(`CREATE_BY_DATA_OBJECT`)
+          CALL METHOD z2ui5_cl_ui5_srt_type=>(`CREATE_BY_DATA_OBJECT`)
             EXPORTING
               data_object = data
             RECEIVING

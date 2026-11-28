@@ -30,7 +30,7 @@ its generated branch `cloud`), nothing of them belongs here.
 ## Rules
 
 - **The code is frozen.** It is the core's `src/99` at the time of each move
-  (it differs in three places, listed below). Do not refactor,
+  (it differs in four places, listed below). Do not refactor,
   extend or restyle it; fix only what stops it from activating against a
   current abap2UI5 release. New utilities belong in
   [abap-util](https://github.com/abap-util/abap-util), a new popup in
@@ -44,6 +44,12 @@ its generated branch `cloud`), nothing of them belongs here.
     `_to_select` - no longer call `client->popup_model_update( )` (seven
     calls, 2026-11-22): the core removed the method after 1.150.0, and it
     had been empty since before 1.149.0.
+  - `z2ui5_cl_util` calls the core's ajson and S-RTTI by the names they
+    have since abap2UI5/abap2UI5#3093 (2026-11-28): `z2ui5_cl_ui5_ajs`,
+    `z2ui5_if_ui5_ajs` and `z2ui5_cl_ui5_srt_type`, where it had
+    `z2ui5_cl_ajson`, `z2ui5_if_ajson` and `z2ui5_cl_srt_typedescr`. The
+    core renamed its vendored copies; this repository may not add objects,
+    so it does not vendor one of its own.
   - `z2ui5_cl_util_ext=>lock_set_wait` pauses between two tries with the
     function module `ENQUE_SLEEP`, called by name, where it had
     `WAIT UP TO` (2026-11-22): `WAIT` is no statement of ABAP Cloud, and a
@@ -55,7 +61,7 @@ its generated branch `cloud`), nothing of them belongs here.
   and `src/02` for that reason too: the utilities stay where a system that
   installed abap2UI5-ext has them.
 - **Dependency on the core, by package:**
-  - `src/` calls `z2ui5_cl_ajson`, `z2ui5_cl_srt_*` and the public types
+  - `src/` calls `z2ui5_cl_ui5_ajs`, `z2ui5_cl_ui5_srt_type` and the public types
     `ty_s_name_value` / `ty_t_name_value` of `z2ui5_cl_ui5_util_context` (all
     in the core's `src/00`) - nothing marked `FROZEN-ONLY` there.
     `z2ui5_cl_util_xml` reads its XML-attribute escape format from
@@ -68,11 +74,16 @@ its generated branch `cloud`), nothing of them belongs here.
     them before the call here is gone - redirecting such a call to
     `z2ui5_cl_util`, which holds the original, is the change that frees it.
 - **The abaplint configs load `src/00` to `src/02` of the core's `main`**
-  (`702` for the 7.02 config; the 1.151.0 tag once it is cut), not all of
-  `src/`: a release up to 1.149.0 still ships these classes itself in
-  `src/99`, and loading that would define every object twice. Not an older
-  tag: the namespace rename (below) pairs with the core's `main`. For the same reason the classes of `src/01` and `src/02` can only be
-  installed next to a core release **after 1.149.0**.
+  (`702` for the 7.02 config), not all of `src/`: a release up to 1.149.0
+  still ships these classes itself in `src/99`, and loading that would define
+  every object twice. Not a release yet: the ajson and S-RTTI names
+  `z2ui5_cl_util` calls exist from abap2UI5/abap2UI5#3093 on, which no
+  release up to 1.151.0 has - pin the first release that has them (from
+  1.151.0 to 2026-11-28 the configs pinned that tag, before the rename). The
+  namespace rename (below) pairs with the core at the same pin. For the same
+  reasons the classes of `src/01` and `src/02` can only be installed next to
+  a core release **after 1.149.0**, and `z2ui5_cl_util` only next to one
+  **after 1.151.0**.
 - **The test classes moved with their objects and run on a system only.**
   In the core they ran in the transpiled unit suite; this repository lints,
   it does not transpile.
