@@ -359,7 +359,7 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
                                          ( n = `height`     v = height )
                                          ( n = `width`      v = width )
                                          ( n = `OnPhoto`    v = onphoto )
-                                         ( n = `autoplay`   v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( autoplay ) )
+                                         ( n = `autoplay`   v = z2ui5_cl_util=>boolean_abap_2_json( autoplay ) )
                                          ( n = `facingMode` v = facingmode )
                                          ( n = `deviceId`   v = deviceid )
          ) ).
@@ -374,7 +374,7 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
         name   = `CameraSelector`
         ns     = `z2ui5`
         t_prop = VALUE #(
-            (  n = `showClearIcon` v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( showclearicon ) )
+            (  n = `showClearIcon` v = z2ui5_cl_util=>boolean_abap_2_json( showclearicon ) )
             (  n = `selectedKey`   v = selectedkey )
             (  n = `items`         v = items )
             (  n = `id`         v = id )
@@ -387,14 +387,14 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
             (  n = `valueState`         v = valuestate )
             (  n = `valueStateText`         v = valuestatetext )
             (  n = `textAlign`         v = textalign )
-            (  n = `showSecondaryValues`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( showsecondaryvalues ) )
-            (  n = `visible`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( visible ) )
-            (  n = `showValueStateMessage`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( showvaluestatemessage ) )
-            (  n = `showButton`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( showbutton ) )
-            (  n = `required`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( required ) )
-            (  n = `editable`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( editable ) )
-            (  n = `enabled`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( enabled ) )
-            (  n = `filterSecondaryValues`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( filtersecondaryvalues ) )
+            (  n = `showSecondaryValues`         v = z2ui5_cl_util=>boolean_abap_2_json( showsecondaryvalues ) )
+            (  n = `visible`         v = z2ui5_cl_util=>boolean_abap_2_json( visible ) )
+            (  n = `showValueStateMessage`         v = z2ui5_cl_util=>boolean_abap_2_json( showvaluestatemessage ) )
+            (  n = `showButton`         v = z2ui5_cl_util=>boolean_abap_2_json( showbutton ) )
+            (  n = `required`         v = z2ui5_cl_util=>boolean_abap_2_json( required ) )
+            (  n = `editable`         v = z2ui5_cl_util=>boolean_abap_2_json( editable ) )
+            (  n = `enabled`         v = z2ui5_cl_util=>boolean_abap_2_json( enabled ) )
+            (  n = `filterSecondaryValues`         v = z2ui5_cl_util=>boolean_abap_2_json( filtersecondaryvalues ) )
             (  n = `width`         v = width )
             (  n = `placeholder`         v = placeholder )
             (  n = `change`        v = change ) ) ).
@@ -459,14 +459,14 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
                           (  n = `upload`             v = upload )
                           (  n = `path`               v = path )
                           (  n = `value`              v = value )
-                          (  n = `iconOnly`           v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( icononly ) )
-                          (  n = `buttonOnly`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( buttononly ) )
+                          (  n = `iconOnly`           v = z2ui5_cl_util=>boolean_abap_2_json( icononly ) )
+                          (  n = `buttonOnly`         v = z2ui5_cl_util=>boolean_abap_2_json( buttononly ) )
                           (  n = `buttonText`         v = buttontext )
                           (  n = `uploadButtonText`   v = uploadbuttontext )
                           (  n = `fileType`           v = filetype )
-                          (  n = `checkDirectUpload`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( checkdirectupload ) )
+                          (  n = `checkDirectUpload`  v = z2ui5_cl_util=>boolean_abap_2_json( checkdirectupload ) )
                           (  n = `icon`           v = icon )
-                          (  n = `enabled`         v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( enabled ) ) ) ).
+                          (  n = `enabled`         v = z2ui5_cl_util=>boolean_abap_2_json( enabled ) ) ) ).
 
   ENDMETHOD.
 
@@ -500,7 +500,7 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
                            ( n = `altitudeAccuracy`  v = altitudeaccuracy )
                            ( n = `speed`  v = speed )
                            ( n = `heading`  v = heading )
-                           ( n = `enableHighAccuracy`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( enablehighaccuracy ) )
+                           ( n = `enableHighAccuracy`  v = z2ui5_cl_util=>boolean_abap_2_json( enablehighaccuracy ) )
                            ( n = `timeout`  v = timeout )
                 ) ).
 
@@ -650,8 +650,8 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
                        ns     = `z2ui5`
                        t_prop = VALUE #( ( n = `delayMS`  v = delayms )
                                          ( n = `finished`  v = finished )
-                                         ( n = `checkActive`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( checkactive ) )
-                                         ( n = `checkRepeat`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( checkrepeat ) )
+                                         ( n = `checkActive`  v = z2ui5_cl_util=>boolean_abap_2_json( checkactive ) )
+                                         ( n = `checkRepeat`  v = z2ui5_cl_util=>boolean_abap_2_json( checkrepeat ) )
                 ) ).
 
   ENDMETHOD.
@@ -678,8 +678,8 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
                        t_prop = VALUE #( ( n = `value`  v = value )
                                          ( n = `path`  v = path )
                                          ( n = `received`  v = received )
-                                         ( n = `checkActive`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( checkactive ) )
-                                         ( n = `checkRepeat`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( checkrepeat ) )
+                                         ( n = `checkActive`  v = z2ui5_cl_util=>boolean_abap_2_json( checkactive ) )
+                                         ( n = `checkRepeat`  v = z2ui5_cl_util=>boolean_abap_2_json( checkrepeat ) )
                 ) ).
 
   ENDMETHOD.
@@ -692,7 +692,7 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
         name   = `LPTitle`
         ns     = `z2ui5`
         t_prop = VALUE #( ( n = `title`  v = title )
-                          ( n = `ApplicationFullWidth`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( applicationfullwidth ) ) ) ).
+                          ( n = `ApplicationFullWidth`  v = z2ui5_cl_util=>boolean_abap_2_json( applicationfullwidth ) ) ) ).
 
   ENDMETHOD.
 
@@ -712,7 +712,7 @@ CLASS Z2UI5_CL_XML_VIEW_CC IMPLEMENTATION.
     result = mo_view.
     mo_view->_generic( name   = `Dirty`
                        ns     = `z2ui5`
-                       t_prop = VALUE #( ( n = `isDirty`  v = z2ui5_cl_ui5_util_context=>boolean_abap_2_json( isdirty ) ) ) ).
+                       t_prop = VALUE #( ( n = `isDirty`  v = z2ui5_cl_util=>boolean_abap_2_json( isdirty ) ) ) ).
 
   ENDMETHOD.
 

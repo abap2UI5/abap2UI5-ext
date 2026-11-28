@@ -98,7 +98,7 @@ CLASS z2ui5_cl_pop_to_select IMPLEMENTATION.
                                         && client->_bind( val  = <tab_out>
                                                           path = abap_true )
                                         && |', sorter : \{ path : '{ to_upper( sort_field ) }', descending : |
-                                        && z2ui5_cl_ui5_util_context=>boolean_abap_2_json( descending )
+                                        && z2ui5_cl_util=>boolean_abap_2_json( descending )
                                         && | \} \}|
         )->a( n = `cancel`           v = client->_event( `CANCEL` )
         )->a( n = `search`           v = client->_event(
@@ -130,8 +130,8 @@ CLASS z2ui5_cl_pop_to_select IMPLEMENTATION.
 
     LOOP AT lt_comp INTO ls_comp.
       DATA(text) = COND #(
-                     LET data_element_name = z2ui5_cl_ui5_util_context=>rtti_get_ddic_type_name( ls_comp-type )
-                         medium_label = z2ui5_cl_ui5_util_context=>rtti_get_data_element_texts( data_element_name )-medium IN
+                     LET data_element_name = z2ui5_cl_util=>rtti_get_ddic_type_name( ls_comp-type )
+                         medium_label = z2ui5_cl_util=>rtti_get_data_element_texts( data_element_name )-medium IN
                      WHEN medium_label IS NOT INITIAL
                      THEN medium_label
                      ELSE ls_comp-name ).
@@ -199,7 +199,7 @@ CLASS z2ui5_cl_pop_to_select IMPLEMENTATION.
 
     ASSIGN mr_tab->* TO <tab>.
 
-    DATA(ls_sel_tab_type) = z2ui5_cl_ui5_util_context=>rtti_create_sel_tab_type( ir_tab = mr_tab
+    DATA(ls_sel_tab_type) = z2ui5_cl_util=>rtti_create_sel_tab_type( ir_tab = mr_tab
                                                                      add_sel_field      = abap_true ).
     check_table_line = ls_sel_tab_type-check_table_line.
 
@@ -283,7 +283,7 @@ CLASS z2ui5_cl_pop_to_select IMPLEMENTATION.
 
     <tab_out> = <tab_out_backup>.
 
-    z2ui5_cl_ui5_util_context=>itab_filter_by_val( EXPORTING val = client->get_event_arg( 1 )
+    z2ui5_cl_util=>itab_filter_by_val( EXPORTING val = client->get_event_arg( 1 )
                                                  ignore_case     = abap_true
                                        CHANGING  tab             = <tab_out> ).
 

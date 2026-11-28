@@ -48,7 +48,7 @@ CLASS z2ui5_cl_pop_get_range IMPLEMENTATION.
 
     r_result = NEW #( ).
 
-    z2ui5_cl_ui5_util_context=>itab_corresponding( EXPORTING val = t_range
+    z2ui5_cl_util=>itab_corresponding( EXPORTING val = t_range
                                        CHANGING  tab             = r_result->ms_result-t_range ).
 
     INSERT VALUE #( ) INTO TABLE r_result->ms_result-t_range.
@@ -134,7 +134,7 @@ CLASS z2ui5_cl_pop_get_range IMPLEMENTATION.
     me->client = client.
 
     IF client->check_on_init( ).
-      mt_mapping = z2ui5_cl_ui5_util_context=>filter_get_token_range_mapping( ).
+      mt_mapping = z2ui5_cl_util=>filter_get_token_range_mapping( ).
 
       CLEAR mt_filter.
       LOOP AT ms_result-t_range REFERENCE INTO DATA(lr_range).
